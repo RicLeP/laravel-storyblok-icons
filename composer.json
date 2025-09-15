@@ -1,0 +1,56 @@
+{
+    "name": "riclep/laravel-storyblok-icons",
+    "description": "Loads a folder of SVG icons to be used in Storyblok.",
+    "keywords": [
+        "riclep",
+        "storyblok",
+        "laravel",
+        "icons"
+    ],
+    "homepage": "https://github.com/riclep/laravel-storyblok-icons",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Richard Le Poidevin",
+            "email": "ric@uandus.co.uk",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.0"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Riclep\\LaravelStoryblokIcons\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Riclep\\LaravelStoryblokIcons\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Riclep\\LaravelStoryblokIcons\\LaravelStoryblokIconsServiceProvider"
+            ],
+            "aliases": {
+                "LaravelStoryblokIcons": "Riclep\\LaravelStoryblokIcons\\Facades\\LaravelStoryblokIcons"
+            }
+        }
+    }
+}
