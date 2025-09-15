@@ -31,8 +31,7 @@ class LaravelStoryblokIconsController extends \App\Http\Controllers\Controller
 
         return response()
             ->view('laravel-storyblok-icons::icons', ['sprites' => $sprites])
-            ->header('Content-Type', 'image/svg+xml')
-            ->header('Access-Control-Allow-Origin', 'https://plugin-sandbox.storyblok.com');
+            ->header('Content-Type', 'image/svg+xml');
     }
 
     /**
