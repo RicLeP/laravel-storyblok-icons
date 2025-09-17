@@ -51,4 +51,15 @@ class SvgIcon
             'filename' => basename($iconPath),
         ];
     }
+
+    /**
+     * Get the URL to an SVG icon for use in Blade templates
+     *
+     * @param string $iconName The icon name without .svg extension
+     * @return string The URL to the icon
+     */
+    public static function iconUrl(string $iconName): string
+    {
+        return route('lsb-icon') . '#' . $iconName;
+    }
 }

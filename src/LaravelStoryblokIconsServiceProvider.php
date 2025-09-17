@@ -2,6 +2,7 @@
 
 namespace Riclep\LaravelStoryblokIcons;
 
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class LaravelStoryblokIconsServiceProvider extends ServiceProvider
@@ -17,7 +18,12 @@ class LaravelStoryblokIconsServiceProvider extends ServiceProvider
 
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
 
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-storyblok-icons');;
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-storyblok-icons');
+
+        Blade::directive('lsbicon', function ($expression) {
+            return "<?php echo \\Riclep\\LaravelStoryblokIcons\\SvgIcon::iconUrl($expression); ?>";
+        });
+
     }
 
     /**
