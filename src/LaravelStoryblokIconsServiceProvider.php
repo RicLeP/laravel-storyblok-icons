@@ -21,7 +21,7 @@ class LaravelStoryblokIconsServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-storyblok-icons');
 
         Blade::directive('lsbicon', function ($expression) {
-            return "<?php echo \\Riclep\\LaravelStoryblokIcons\\SvgIcon::iconUrl($expression); ?>";
+            return "<?php echo \\Riclep\\LaravelStoryblokIcons\\SvgIcon::url($expression); ?>";
         });
 
     }

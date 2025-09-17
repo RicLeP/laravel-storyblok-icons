@@ -58,7 +58,7 @@ class SvgIcon
      * @param string $iconName The icon name without .svg extension
      * @return string The URL to the icon
      */
-    public static function iconUrl(string $iconName): string
+    public static function url(string $iconName): string
     {
         return route('lsb-icon') . '#' . $iconName;
     }
