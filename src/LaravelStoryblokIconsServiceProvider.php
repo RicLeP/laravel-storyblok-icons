@@ -24,6 +24,8 @@ class LaravelStoryblokIconsServiceProvider extends ServiceProvider
             return "<?php echo \\Riclep\\LaravelStoryblokIcons\\SvgIcon::url($expression); ?>";
         });
 
+        Blade::componentNamespace('Riclep\\LaravelStoryblokIcons\\Views\\Components', 'lsb-icons');
+
     }
 
     /**
