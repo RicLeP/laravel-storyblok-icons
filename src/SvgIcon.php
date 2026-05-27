@@ -21,9 +21,17 @@ class SvgIcon
         return collect($svgFiles)->map(function ($file) {
             $id = Str::of(basename($file))->beforeLast('.svg')->toString();
 
+            $svg = File::get($file);
+
+            $hasId = (bool) preg_match('/<symbol[^>]+id\s*=/i', $svg);
+
+            if (!$hasId) {
+                $svg = str_replace('viewBox', 'id="'. $id .'" viewBox', $svg);
+            }
+
             return [
                 'id' => $id,
-                'svg' => File::get($file),
+                'svg' => $svg,
                 'filename' => basename($file),
             ];
         });
@@ -45,9 +53,17 @@ class SvgIcon
 
         $id = Str::of(basename($iconPath))->beforeLast('.svg')->toString();
 
+        $svg = File::get($iconPath);
+
+        $hasId = (bool) preg_match('/<symbol[^>]+id\s*=/i', $svg);
+
+        if (!$hasId) {
+            $svg = str_replace('viewBox', 'id="'. $id .'" viewBox', $svg);
+        }
+
         return [
             'id' => $id,
-            'svg' => File::get($iconPath),
+            'svg' => $svg,
             'filename' => basename($iconPath),
         ];
     }
